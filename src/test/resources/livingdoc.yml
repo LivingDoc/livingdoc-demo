@@ -1,0 +1,37 @@
+repositories:
+  - name: "local"
+    factory: "org.livingdoc.repositories.file.FileRepositoryFactory"
+    config:
+      documentRoot: "src/test/docs"
+
+  - name: "rest"
+    factory: "org.livingdoc.repositories.rest.RESTRepositoryFactory"
+    config:
+      baseURL: "http://localhost:8080/"
+
+  - name: "confluence-1"
+    factory: "org.livingdoc.repositories.confluence.ConfluenceRepositoryFactory"
+    config:
+      baseURL: "http://localhost:8090"
+      path: ""
+      username: "admin"
+      password: "admin"
+
+  - name: "confluence-2"
+    factory: "org.livingdoc.repositories.confluence.ConfluenceRepositoryFactory"
+    config:
+      baseURL: "http://localhost:8098"
+      path: ""
+      username: "admin"
+      password: "admin"
+reports:
+  - name: "confluence-report"
+    format: "confluence"
+    config:
+      repositoryName: "confluence-1"
+      filename: "confluence-report.html"
+      baseURL: "http://localhost:8090"
+      path: ""
+      username: "admin"
+      password: "admin"
+      comment: "My report"
